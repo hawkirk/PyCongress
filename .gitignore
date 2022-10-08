@@ -2,4 +2,4 @@
 scratch.ipynb
 .ipynb_checkpoints
 testerino.py
-__pychache__/
+**/__pycache__
