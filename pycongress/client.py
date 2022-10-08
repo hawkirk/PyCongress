@@ -8,7 +8,7 @@ from requests import auth
 class Client(object):
     
     # top-level api url
-    base_url = "https://api.congress.gov/v3/"
+    BASE_URL = "https://api.congress.gov/v3/"
     
     def __init__(self, api_key=None):
         self.api_key = api_key
@@ -19,9 +19,10 @@ class Client(object):
         """
 
         headers = {"X-API-Key": self.api_key}
-        url = self.base_url + path
+        url = self.BASE_URL + path
         
+        print(url)
+
         content = requests.get(url=url, headers=headers).json()
 
         return content
-
