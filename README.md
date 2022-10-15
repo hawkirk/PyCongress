@@ -1,2 +1,2 @@
 # PyCongress
-Pure Python wrapper for the Congress.gov API
+Python client for [Congress.gov's API](https://api.congress.gov/). Currently in development.
