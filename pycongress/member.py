@@ -23,7 +23,7 @@ class MemberClient(Client):
     def list_members(self):
         return self.get()
 
-    def info(self, bioguide):
+    def member_info(self, bioguide):
         return self.get(
             bioguide=bioguide)
 

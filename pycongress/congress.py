@@ -4,7 +4,7 @@ from .utils import CURRENT_CONGRESS
 
 class CongressClient(Client):
 
-    def get(self, congress=CURRENT_CONGRESS):
+    def get(self, congress=None):
         if congress:
             path = "congress/{}.json".format(congress)
         else:
@@ -14,6 +14,6 @@ class CongressClient(Client):
     def list_sessions(self):
         return self.get()
 
-    def info(self, congress):
+    def info(self, congress=CURRENT_CONGRESS):
         return self.get(
             congress=congress)

@@ -4,79 +4,55 @@ from .utils import CURRENT_CONGRESS
 
 class BillClient(Client):
 
-    def get(self, bill_type, bill_number, congress=CURRENT_CONGRESS, data=None):
-        if data:
+    def get(self, bill_type=None, bill_number=None, congress=CURRENT_CONGRESS, return_type=None):
+        if congress and bill_type and bill_number and return_type:
             path = "bill/{}/{}/{}/{}.json".format(
-                congress, bill_type, bill_number, data
+                congress, bill_type, bill_number, return_type
             )
-
-        else:
+        elif congress and bill_type and bill_number:
             path = "bill/{}/{}/{}.json".format(
                 congress, bill_type, bill_number
             )
-
+        elif congress and bill_type:
+            path = "bill/{}/{}.json".format(
+                congress, bill_type
+            )
+        elif congress:
+            path = "bill/{}.json".format(congress)
+        else:
+            path = "bill.json"
         return self.fetch(path)
 
-    def actions(self, bill_type, bill_number, congress=CURRENT_CONGRESS):
-        return self.get(
-            congress=congress,
-            bill_type=bill_type,
-            bill_number=bill_number,
-            data="actions"
-        )
+    def list_bills(self, congress=None, bill_type=None):
+        if congress and bill_type:
+            return self.get(
+                congress=congress,
+                bill_type=bill_type)
+        elif congress:
+            return self.get(congress=congress)
 
-    def amendments(self, bill_type, bill_number, congress=CURRENT_CONGRESS):
-        return self.get(
-            congress=congress,
-            bill_type=bill_type,
-            bill_number=bill_number,
-            data="amendments")
+        return self.get()
 
-    def committees(self, bill_type, bill_number, congress=CURRENT_CONGRESS):
+    def bill_info(self, bill_type, bill_number, congress=CURRENT_CONGRESS, return_type=None):
+        return_types = [
+            'actions',
+            'amendments',
+            'committees',
+            'cosponsors',
+            'relatedBills',
+            'subjects',
+            'summaries',
+            'text',
+            'titles']
+        if return_type:
+            if return_type not in return_types:
+                raise ValueError("Invalid return type. Expected one of %s" % return_types)
+            return self.get(
+                congress=congress,
+                bill_type=bill_type,
+                bill_number=bill_number,
+                return_type=return_type)
         return self.get(
             congress=congress,
             bill_type=bill_type,
-            bill_number=bill_number,
-            data="committees")
-
-    def cosponsors(self, bill_type, bill_number, congress=CURRENT_CONGRESS):
-        return self.get(
-            congress=congress,
-            bill_type=bill_type,
-            bill_number=bill_number,
-            data="cosponsors")
-
-    def related_bills(self, bill_type, bill_number, congress=CURRENT_CONGRESS):
-        return self.get(
-            congress=congress,
-            bill_type=bill_type,
-            bill_number=bill_number,
-            data="relatedbills")
-
-    def subjects(self, bill_type, bill_number, congress=CURRENT_CONGRESS):
-        return self.get(
-            congress=congress,
-            bill_type=bill_type,
-            bill_number=bill_number,
-            data="subjects")
-
-    def summaries(self, bill_type, bill_number, congress=CURRENT_CONGRESS):
-        return self.get(
-            congress=congress,
-            bill_type=bill_type,
-            bill_number=bill_number,
-            data="summaries")
-
-    def text(self, bill_type, bill_number, congress=CURRENT_CONGRESS):
-        return self.get(
-            congress=congress,
-            bill_type=bill_type,
-            bill_number=bill_number,
-            data="text")
-
-    def titles(self, bill_type, bill_number, congress=CURRENT_CONGRESS):
-        return self.get(
-            congress=congress,
-            bill_type=bill_type,
-            bill_number=bill_number,
-            data="titles")
+            bill_number=bill_number)

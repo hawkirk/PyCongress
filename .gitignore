@@ -1,7 +1,6 @@
 .env
 scratch.ipynb
 .ipynb_checkpoints
-testerino.py
 amendments.py
 committee_report.py
 committee.py
