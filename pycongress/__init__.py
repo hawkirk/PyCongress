@@ -7,7 +7,6 @@ __version__ = "0.0.0"
 
 import os
 
-
 from .client import Client
 from .utils import CURRENT_CONGRESS, get_congress, df_output
 

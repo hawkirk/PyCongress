@@ -12,8 +12,14 @@ class CongressClient(Client):
         return self.fetch(path)
 
     def list_sessions(self):
+        """
+        Returns a list of congresses and congressional sessions.
+        """
         return self.get()
 
-    def info(self, congress=CURRENT_CONGRESS):
+    def congress_info(self, congress=CURRENT_CONGRESS):
+        """
+        Returns detailed information for a specified congress.
+        """
         return self.get(
             congress=congress)

@@ -14,14 +14,9 @@ class Client(object):
 
     def fetch(self, path):
         """
-        Fetch response from the api based on specified path
+        Fetch response from the api based on a specified path.
         """
-
         headers = {"X-API-Key": self.api_key}
         url = self.BASE_URL + path
-
-        print(url)
-
         content = requests.get(url=url, headers=headers).json()
-
         return content

@@ -24,6 +24,10 @@ class BillClient(Client):
         return self.fetch(path)
 
     def list_bills(self, congress=None, bill_type=None):
+        """
+        Returns a list of bills sorted by date of latest action, optionally
+        limited by congress and/or bill type.
+        """
         if congress and bill_type:
             return self.get(
                 congress=congress,
@@ -34,6 +38,12 @@ class BillClient(Client):
         return self.get()
 
     def bill_info(self, bill_type, bill_number, congress=CURRENT_CONGRESS, return_type=None):
+        """
+        Returns detailed information for a specified bill. Optionally returns
+        additional bill information: actions, amendments, committees,
+        cosponsors, related bills, subjects, summaries, text versions, and/or
+        titles.
+        """
         return_types = [
             'actions',
             'amendments',

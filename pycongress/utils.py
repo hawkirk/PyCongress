@@ -7,6 +7,9 @@ import math
 
 
 def get_congress(year):
+    """
+    Returns the congress number based on a specified year.
+    """
     if year < 1789:
         raise ValueError
 
@@ -14,6 +17,9 @@ def get_congress(year):
 
 
 def df_output(json_input):
+    """
+    Takes json request output and returns a pandas DataFrame object.
+    """
     df = pd.DataFrame(json_input["result"])
     return df
 

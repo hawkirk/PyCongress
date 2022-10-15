@@ -1,4 +1,9 @@
 # PyCongress
+
+[![Version](https://img.shields.io/pypi/)]()
+[![Quality Gate Status](https://img.shields.io/sonar/alert_status/)]()
+[![CodeCoverage](https://img.shields.io/sonar/coverage/)]()
+
 Python client for [Congress.gov's API](https://api.congress.gov/).
 
 ## Setup
@@ -28,4 +33,4 @@ congress = Congress(api_key="Insert key here")
 
 This project was inspired by [propublica-congress](https://github.com/eyeseast/propublica-congress).
 
-The Congress.Gov API is currently in beta. Visit the Library of Congress [blog](https://blogs.loc.gov/law/2022/09/introducing-the-congress-gov-api/) or [GitHub page](https://github.com/LibraryOfCongress/api.congress.gov/) for additional information.
+The Congress.Gov API is currently in beta. Visit the Library of Congress [blog](https://blogs.loc.gov/law/2022/09/introducing-the-congress-gov-api/) or [GitHub page](https://github.com/LibraryOfCongress/api.congress.gov/) for more information.
