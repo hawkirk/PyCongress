@@ -1,12 +1,4 @@
 .env
-scratch.ipynb
-.ipynb_checkpoints
-amendments.py
-committee_report.py
-committee.py
-congressional_record.py
-house_communication.py
-nomination.py
-summaries.py
-treaty.py
+dist/
+pycongress.egg-info/
 **/__pycache__
