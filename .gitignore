@@ -2,4 +2,11 @@
 scratch.ipynb
 .ipynb_checkpoints
 testerino.py
+committee_report.py
+committee.py
+congressional_record.py
+house_communication.py
+nomination.py
+summaries.py
+treat.py
 **/__pycache__

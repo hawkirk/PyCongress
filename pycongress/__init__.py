@@ -14,6 +14,7 @@ from .utils import CURRENT_CONGRESS, get_congress, df_output
 # subclients
 from .bill import BillClient
 from .member import MemberClient
+from .congress import CongressClient
 
 
 __all__ = ('Congress', 'get_congress', 'df_output', 'CURRENT_CONGRESS')
@@ -29,3 +30,4 @@ class Congress(Client):
 
         self.bill = BillClient(self.api_key)
         self.member = MemberClient(self.api_key)
+        self.congress = CongressClient(self.api_key)
