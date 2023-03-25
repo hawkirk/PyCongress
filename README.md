@@ -8,6 +8,8 @@ Python client for [Congress.gov's API](https://api.congress.gov/).
 
 ## Setup
 
+> ⚠️ Note: As of March 2023 `pycongress` is no longer maintained and not reccomended for installation at this time.
+
 Install `pycongress` with [pip](https://pypi.org/project/pycongress/):
 
 ```bash
@@ -27,7 +29,7 @@ congress = Congress(api_key="Insert key here")
 
 ## Misc.
 
-`pycongress` is currently in alpha development and only supports the `bill`, `member`, and `congress` endpoints. Support for more endpoints is planned in the future.
+`pycongress` currently only supports the `bill`, `member`, and `congress` endpoints. May support more endpoints in the future.
 
 This project was inspired by [propublica-congress](https://github.com/eyeseast/propublica-congress).
 
